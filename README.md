@@ -1,7 +1,6 @@
 Worm
 ====
-
-Description: If the classic snake game and the puzzle game bejeweled had a child, this would be their child. 
+Description:
 
 Language: C++
 
