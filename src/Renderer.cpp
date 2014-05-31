@@ -54,7 +54,7 @@ int Renderer::loadImage(const std::string& filename)
 }
 
 //Loads the image of the object and sets up a sprite for the object
-int Renderer::loadObject(GenericObject& object)
+int Renderer::loadObject(Renderable& object)
 {
     std::string filename = object.getImageFile();
 
@@ -71,10 +71,10 @@ int Renderer::loadObject(GenericObject& object)
     return 0;
 }
 
-void Renderer::render(GenericObject& object)
+void Renderer::render(Renderable& object)
 {
-    int posX = object.getState().getPosX();
-    int posY = object.getState().getPosY();
+    int posX = object.getImageState().getPosX();
+    int posY = object.getImageState().getPosY();
 
     //load the object to set up the sprite for use
     if(!(loadObject(object) < 0))
@@ -84,7 +84,7 @@ void Renderer::render(GenericObject& object)
     }
 }
 
-bool Renderer::alreadyLoaded(GenericObject& object)
+bool Renderer::alreadyLoaded(Renderable& object)
 {
     std::string filename = object.getImageFile();
     if(imageToTexture.count(filename))

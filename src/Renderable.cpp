@@ -1,38 +1,33 @@
 #include "../include/Renderable.h"
 
-GenericObject::GenericObject()
+Renderable::Renderable()
 {
 }
 
 //{ Accessors
-std::string GenericObject::getImageFile()
+std::string Renderable::getImageFile()
 {
     return imageFile;
 }
 
-ObjectState& GenericObject::getState()
-{
-    return state;
-}
-
-sf::Sprite& GenericObject::getSprite()
+sf::Sprite& Renderable::getSprite()
 {
     return sprite;
+}
+
+ObjectState& Renderable::getImageState()
+{
+    return imageState;
 }
 //}
 
 //{ Mutators
-void GenericObject::setImageFile(const std::string& filename)
+void Renderable::setImageFile(const std::string& filename)
 {
     imageFile = filename;
 }
 
-void GenericObject::setState(const ObjectState& state)
-{
-    this->state = state;
-}
-
-void GenericObject::setSprite(const sf::Sprite& sprite)
+void Renderable::setSprite(const sf::Sprite& sprite)
 {
     this->sprite = sprite;
 }

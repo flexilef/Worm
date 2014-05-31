@@ -20,24 +20,13 @@ Ball::Ball(int x, int y, sf::Color c)
     setColor(c);
 }
 
-Ball& Ball::operator=(Ball rhs)
+//{ Accessors
+
+ObjectState& Ball::getState()
 {
-    //check for self assignment
-    if(this == &rhs)
-        return *this;
-
-    //TODO: make a swap function with all the code below
-
-    rhs.setState(this->getState());
-    rhs.setSprite(this->getSprite());
-    rhs.setImageFile(this->getImageFile());
-    rhs.setDestroyed(this->isDestroyed());
-    rhs.setColor(this->getColor());
-
-    return *this;
+    return state;
 }
 
-//{ Accessors
 sf::Color Ball::getColor()
 {
     return color;
@@ -63,21 +52,17 @@ void Ball::setColor(sf::Color c)
 //}
 
 //{ Member Functions
-//not sure if better to use helper function (prob yes, since recyclable) or just do it in the function
+
+//Updates the ball's position based on it's velocity and angle
 void Ball::moveBall()
 {
-    const double PI = 3.14159265358979323846;
-
     double posX = state.getPosX();
     double posY = state.getPosY();
-    double velocity = state.getVelocity();
-    double angle = state.getAngle();
-
-    double velocityX = velocity*cos(angle*PI/180);
-    double velocityY = velocity*sin(angle*PI/180);
+    double velocityX = 0;
+    double velocityY = 0;
 
     //Calculate velocityX and velocityY
-    //state.calculateComponents(velocityX, velocityY, state.getVelocity(), state.getAngle());
+    state.calculateComponents(velocityX, velocityY, state.getVelocity(), state.getAngle());
 
     posX += velocityX;
     posY += velocityY;

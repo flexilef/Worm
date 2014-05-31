@@ -3,13 +3,15 @@
 
 #include "Ball.h"
 
-class BallShooter : public GenericObject
+class BallShooter : public Renderable
 {
 private:
+    ObjectState state;
     Ball* currentBallPtr;
     bool loaded;
 public:
     BallShooter(int, int);
+    ObjectState& getState();
     void shoot();
     void loadBall(Ball&);
     bool isLoaded();

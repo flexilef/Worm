@@ -31,6 +31,8 @@ double ObjectState::getAccleration()
     return acceleration;
 }
 
+//Returns the angle the object is currently facing,
+//where 0 = +x and 180 = -x
 double ObjectState::getAngle()
 {
     return angle;
@@ -61,6 +63,8 @@ void ObjectState::setAngle(double degrees)
 //}
 
 //{ Helpers
+//Calculates the x and y components of a given value and angle, and stores the results into
+//xComponent and yComponent
 void ObjectState::calculateComponents(double& xComponent, double& yComponent, double value, double angle)
 {
     const double PI = 3.14159265358979323846;

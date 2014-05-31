@@ -4,9 +4,10 @@
 #include <SFML/Graphics.hpp>
 #include "Renderable.h"
 
-class Ball : public GenericObject
+class Ball : public Renderable
 {
 private:
+    ObjectState state;
     sf::Color color;
     bool destroyed;
 
@@ -18,16 +19,13 @@ public:
     void moveBall();
 
     //Accessors
+    ObjectState& getState();
     sf::Color getColor();
     bool isDestroyed();
 
     //Mutators
     void setColor(sf::Color);
     void setDestroyed(bool);
-
-    //overload == operator
-    Ball& operator=(Ball);
-
 };
 
 

@@ -17,10 +17,10 @@ public:
     void init();
     void shutdown();
     int loadImage(const std::string&);
-    int loadObject(GenericObject&);
-    void render(GenericObject&);
+    int loadObject(Renderable&);
+    void render(Renderable&);
     void clearScreen();
-    bool alreadyLoaded(GenericObject&);
+    bool alreadyLoaded(Renderable&);
 };
 
 #endif // RENDERER_H

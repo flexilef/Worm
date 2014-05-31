@@ -6,28 +6,26 @@
 //#include "ImageInfo.h"
 #include <iostream>
 
-class GenericObject
+class Renderable
 {
 protected:
     //Image properties
     std::string imageFile;
     sf::Sprite sprite;
-
-    //Physical Properties
-    ObjectState state;
+    ObjectState imageState;
 
 public:
-    GenericObject();
+    Renderable();
 
     //Accessors
     std::string getImageFile();
-    ObjectState& getState();
     sf::Sprite& getSprite();
+    ObjectState& getImageState();
 
     //Mutators
-    void setState(const ObjectState&);
     void setSprite(const sf::Sprite&);
     void setImageFile(const std::string&);
+    void setImageState(ObjectState);
 };
 
 

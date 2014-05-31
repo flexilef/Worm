@@ -11,6 +11,11 @@ BallShooter::BallShooter(int x, int y)
     loaded = true;
 }
 
+ObjectState& BallShooter::getState()
+{
+    return state;
+}
+
 void BallShooter::shoot()
 {
     double angle = state.getAngle();

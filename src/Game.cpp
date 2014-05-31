@@ -1,9 +1,9 @@
 #include "../include/Game.h"
-#include "../src/Collision.cpp"
+#include "../src/Collision.h"
 #include <cstdlib>
 #include <sstream>
 
-Grid::Grid(int w, int h) : _renderer(&_window), _shooter(w/2-30, h-60)
+Game::Game(int w, int h) : _renderer(&_window), _shooter(w/2-30, h-60)
 {
     width = w;
     height = h;
@@ -12,19 +12,19 @@ Grid::Grid(int w, int h) : _renderer(&_window), _shooter(w/2-30, h-60)
     init();
 }
 
-Grid::~Grid() {}
+Game::~Game() {}
 
-void Grid::init()
+void Game::init()
 {
     generateLevel(1);
 }
 
-void Grid::shutdown()
+void Game::shutdown()
 {
 
 }
 
-void Grid::gameLoop()
+void Game::gameLoop()
 {
     //debugging stuff here
     std::stringstream ss;
@@ -80,7 +80,7 @@ void Grid::gameLoop()
     }
 }
 
-void Grid::updateEntities()
+void Game::updateEntities()
 {
     for(int i=0; i<_balls.size(); i++)
     {
@@ -91,7 +91,7 @@ void Grid::updateEntities()
     //if(Collision::BoundingBoxTest(_balls[0].getSprite(),_balls[1].getSprite()))
 }
 
-void Grid::drawEntities()
+void Game::drawEntities()
 {
     int posX, posY;
     int numOfBalls = _balls.size();
@@ -112,7 +112,7 @@ void Grid::drawEntities()
     }
 }
 
-float Grid::getDeltaT()
+float Game::getDeltaT()
 {
     Clock.restart();
     double deltaT = Clock.restart().asSeconds();
@@ -120,7 +120,7 @@ float Grid::getDeltaT()
     return deltaT;
 }
 
-void Grid::handleInput(sf::Event& event)
+void Game::handleInput(sf::Event& event)
 {
     if(event.type == sf::Event::KeyPressed)
     {
@@ -164,7 +164,7 @@ void Grid::handleInput(sf::Event& event)
     _shooter.getState().setAngle(angle);
 }
 
-void Grid::handleCollisions()
+void Game::handleCollisions()
 {
     int currentBallIndex = 0;
     for(int i=0; i<_balls.size(); i++)
@@ -179,7 +179,7 @@ void Grid::handleCollisions()
     }
 }
 
-void Grid::generateLevel(int level)
+void Game::generateLevel(int level)
 {
     srand(time(NULL));
     int randColor = 0;

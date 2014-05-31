@@ -8,7 +8,7 @@ private:
     double posY;
     double velocity;
     double acceleration;
-    int angle;  //where 0 = +x and 180 = -x
+    int angle;
 
 public:
     ObjectState();

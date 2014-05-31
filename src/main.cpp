@@ -13,8 +13,8 @@
 
 int main()
 {
-    Grid theGrid(300, 400);
-    theGrid.gameLoop();
+    Game theGame(300, 400);
+    theGame.gameLoop();
 
     return 0;
 }

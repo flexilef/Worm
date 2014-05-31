@@ -7,7 +7,7 @@
 #include "BallShooter.h"
 
 //Like the "world"
-class Grid
+class Game
 {
 private:
     int width;
@@ -21,8 +21,8 @@ private:
     std::vector<Ball> _balls;
 
 public:
-    Grid(int, int);
-    ~Grid();
+    Game(int, int);
+    ~Game();
 
     void init(); //sets up the current gamestate
     void shutdown();
