@@ -7,9 +7,9 @@ Ball::Ball()
 {
     imageFile = "whiteBall.png";
     state.setPosition(0, 0);
-    destroyed = false;
-    setColor(sf::Color::Blue);
 
+    destroyed = false;
+    setColor(sf::Color::White);
 }
 
 Ball::Ball(int x, int y, sf::Color c)
@@ -18,6 +18,12 @@ Ball::Ball(int x, int y, sf::Color c)
     state.setPosition(x,y);
     destroyed = false;
     setColor(c);
+}
+
+Ball::Ball(ObjectState state)
+{
+    //TODO: write a equal operator override
+    this->state = state;
 }
 
 //{ Accessors
@@ -47,13 +53,14 @@ void Ball::setDestroyed(bool destroy)
 void Ball::setColor(sf::Color c)
 {
     color = c;
-    sprite.setColor(color);
+    sprite.setColor(color); //fix or look into this
 }
 //}
 
 //{ Member Functions
 
 //Updates the ball's position based on it's velocity and angle
+//and also updates the sprite (because that is what is what the user sees)
 void Ball::moveBall()
 {
     double posX = state.getPosX();

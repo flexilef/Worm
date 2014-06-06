@@ -14,6 +14,7 @@ private:
 public:
     Ball();
     Ball(int, int, sf::Color);
+    Ball(ObjectState);
 
     //Member Functions
     void moveBall();
